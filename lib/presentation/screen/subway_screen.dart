@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_subway/presentation/screen/subway_viewmodel.dart';
 import 'package:provider/provider.dart';
@@ -36,11 +34,16 @@ class _SubwayScreenState extends State<SubwayScreen> {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: ListView(
-              children: [
-                subways.map((e) => )
-              ],
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: subways.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text('${subways[index].statnNm}'),
+                );
+              },
             ),
+
           ),
         ],
       ),
