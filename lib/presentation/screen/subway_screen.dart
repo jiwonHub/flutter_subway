@@ -14,6 +14,7 @@ class _SubwayScreenState extends State<SubwayScreen> {
   Widget build(BuildContext context) {
     final viewModel = context.watch<SubwayViewModel>();
     final subways = viewModel.subways;
+    final _textController = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -24,12 +25,19 @@ class _SubwayScreenState extends State<SubwayScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
-              onChanged: (value) {
-                setState(() {
-                  viewModel.onSearch(value);
-                });
-              },
-              decoration: const InputDecoration(labelText: '역 이름 검색'),
+              // decoration: const InputDecoration(labelText: '역 이름 검색'),
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: '역 이름 검색',
+                suffixIcon: IconButton(
+                  icon: Icon(Icons.search),
+                  onPressed: () {
+                    final query = _textController.text;
+                    viewModel.onSearch(query);
+                  },
+
+                ),
+              ),
             ),
           ),
           Padding(
@@ -43,7 +51,6 @@ class _SubwayScreenState extends State<SubwayScreen> {
                 );
               },
             ),
-
           ),
         ],
       ),

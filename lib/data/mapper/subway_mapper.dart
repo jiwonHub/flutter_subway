@@ -7,7 +7,7 @@ extension ToSubway on RealtimeArrivalList {
       subwayId: int.parse(subwayId!),
       arvlCd: int.parse(arvlCd!),
       barvlDt: int.parse(barvlDt!),
-      statnNm: subwayNm,
+      statnNm: statnNm!,
     );
   }
 }
