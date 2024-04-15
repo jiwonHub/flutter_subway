@@ -48,8 +48,7 @@ class _SubwayCardWidgetState extends State<SubwayCardWidget> {
                   ),
                 ),
                 Text(
-                  subway.barvlDt != '0' ?
-                  '도착 ${subway.barvlDt}초전' : subway.arvlCd == '2' ? '뛰세요' : '늦었어요',
+                  '도착 ${subway.barvlDt}초전',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 15,

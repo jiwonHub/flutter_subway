@@ -21,30 +21,34 @@ class _SubwayScreenState extends State<SubwayScreen> {
       appBar: AppBar(
         title: const Text('지하철 노선 정보'),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              // decoration: const InputDecoration(labelText: '역 이름 검색'),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: '역 이름 검색',
-                suffixIcon: IconButton(
-                  icon: Icon(Icons.search),
-                  onPressed: () {
-                    final query = _textController.text;
-                    viewModel.onSearch(query);
-                  },
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                // decoration: const InputDecoration(labelText: '역 이름 검색'),
+                controller: _textController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: '역 이름 검색',
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: () {
+                      final query = _textController.text;
+                      viewModel.onSearch(query);
+                      FocusScope.of(context).unfocus();
+                    },
+                  ),
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SubwayCardWidget(),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SubwayCardWidget(),
+            ),
+          ],
+        ),
       ),
     );
   }

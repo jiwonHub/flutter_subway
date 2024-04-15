@@ -63,7 +63,6 @@ class SubwayViewModel with ChangeNotifier {
       '5': '전역도착',
       '99': '운행중',
     };
-
     List<SubwayModel> updatedSubways = List.from(_state.subways);
     for (int i = 0; i < updatedSubways.length; i++) {
       String arriveName = subwayArriveMap[updatedSubways[i].arvlCd] ?? '';
