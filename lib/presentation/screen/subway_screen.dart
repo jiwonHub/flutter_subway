@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_subway/presentation/components/subway_card_widget.dart';
 import 'package:flutter_subway/presentation/screen/subway_viewmodel.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +14,7 @@ class _SubwayScreenState extends State<SubwayScreen> {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<SubwayViewModel>();
-    final subways = viewModel.subways;
+    final subways = viewModel.state;
     final _textController = TextEditingController();
 
     return Scaffold(
@@ -35,22 +36,13 @@ class _SubwayScreenState extends State<SubwayScreen> {
                     final query = _textController.text;
                     viewModel.onSearch(query);
                   },
-
                 ),
               ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: subways.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text('${subways[index].statnNm}'),
-                );
-              },
-            ),
+            child: SubwayCardWidget(),
           ),
         ],
       ),

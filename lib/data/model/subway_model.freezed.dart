@@ -20,7 +20,7 @@ SubwayModel _$SubwayModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SubwayModel {
-  int get subwayId => throw _privateConstructorUsedError; // 지하철호선ID
+  String get subwayId => throw _privateConstructorUsedError; // 지하철호선ID
   int get arvlCd =>
       throw _privateConstructorUsedError; // 도착코드 (0:진입, 1:도착, 2:출발, 3:전역출발, 4:전역진입, 5:전역도착, 99:운행중)
   int get barvlDt => throw _privateConstructorUsedError; // 열차도착예정시간 (단위:초)
@@ -38,7 +38,7 @@ abstract class $SubwayModelCopyWith<$Res> {
           SubwayModel value, $Res Function(SubwayModel) then) =
       _$SubwayModelCopyWithImpl<$Res, SubwayModel>;
   @useResult
-  $Res call({int subwayId, int arvlCd, int barvlDt, String statnNm});
+  $Res call({String subwayId, int arvlCd, int barvlDt, String statnNm});
 }
 
 /// @nodoc
@@ -63,7 +63,7 @@ class _$SubwayModelCopyWithImpl<$Res, $Val extends SubwayModel>
       subwayId: null == subwayId
           ? _value.subwayId
           : subwayId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       arvlCd: null == arvlCd
           ? _value.arvlCd
           : arvlCd // ignore: cast_nullable_to_non_nullable
@@ -88,7 +88,7 @@ abstract class _$$SubwayModelImplCopyWith<$Res>
       __$$SubwayModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int subwayId, int arvlCd, int barvlDt, String statnNm});
+  $Res call({String subwayId, int arvlCd, int barvlDt, String statnNm});
 }
 
 /// @nodoc
@@ -111,7 +111,7 @@ class __$$SubwayModelImplCopyWithImpl<$Res>
       subwayId: null == subwayId
           ? _value.subwayId
           : subwayId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       arvlCd: null == arvlCd
           ? _value.arvlCd
           : arvlCd // ignore: cast_nullable_to_non_nullable
@@ -141,7 +141,7 @@ class _$SubwayModelImpl implements _SubwayModel {
       _$$SubwayModelImplFromJson(json);
 
   @override
-  final int subwayId;
+  final String subwayId;
 // 지하철호선ID
   @override
   final int arvlCd;
@@ -190,7 +190,7 @@ class _$SubwayModelImpl implements _SubwayModel {
 
 abstract class _SubwayModel implements SubwayModel {
   const factory _SubwayModel(
-      {required final int subwayId,
+      {required final String subwayId,
       required final int arvlCd,
       required final int barvlDt,
       required final String statnNm}) = _$SubwayModelImpl;
@@ -199,7 +199,7 @@ abstract class _SubwayModel implements SubwayModel {
       _$SubwayModelImpl.fromJson;
 
   @override
-  int get subwayId;
+  String get subwayId;
   @override // 지하철호선ID
   int get arvlCd;
   @override // 도착코드 (0:진입, 1:도착, 2:출발, 3:전역출발, 4:전역진입, 5:전역도착, 99:운행중)
