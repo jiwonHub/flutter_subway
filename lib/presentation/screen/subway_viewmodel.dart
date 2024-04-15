@@ -16,10 +16,12 @@ class SubwayViewModel with ChangeNotifier {
 
   void onSearch(String query) async {
     _state = state.copyWith(subways: await _subwayRepository.getSubways(query));
+    mappingLine();
+    mappingArrive();
     notifyListeners();
   }
 
-  void mappingLine(String subwayId) async {
+  void mappingLine() async {
     Map<String, String> subwayLineMap = {
       '1001': '1호선',
       '1002': '2호선',
@@ -42,6 +44,34 @@ class SubwayViewModel with ChangeNotifier {
       '1032': 'GTX-A',
     };
 
-    _state = state.copyWith(subwayLine: subwayLineMap[subwayId]);
+    List<SubwayModel> updatedSubways = List.from(_state.subways);
+    for (int i = 0; i < updatedSubways.length; i++) {
+      String lineName = subwayLineMap[updatedSubways[i].subwayId] ?? '해당되는 호선 없음';
+      updatedSubways[i] = updatedSubways[i].copyWith(subwayId: lineName);
+    }
+
+    _state = _state.copyWith(subways: updatedSubways);
+  }
+
+  void mappingArrive() async {
+    Map<String, String> subwayArriveMap = {
+      '0': '진입중',
+      '1': '도착',
+      '2': '출발',
+      '3': '전역출발',
+      '4': '전역진입',
+      '5': '전역도착',
+      '99': '운행중',
+    };
+
+    List<SubwayModel> updatedSubways = List.from(_state.subways);
+    for (int i = 0; i < updatedSubways.length; i++) {
+      String arriveName = subwayArriveMap[updatedSubways[i].arvlCd] ?? '';
+      updatedSubways[i] = updatedSubways[i].copyWith(arvlCd: arriveName);
+    }
+
+    _state = _state.copyWith(subways: updatedSubways);
   }
 }
+
+//(0:진입, 1:도착, 2:출발, 3:전역출발, 4:전역진입, 5:전역도착, 99:운행중)

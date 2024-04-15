@@ -21,9 +21,9 @@ SubwayModel _$SubwayModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SubwayModel {
   String get subwayId => throw _privateConstructorUsedError; // 지하철호선ID
-  int get arvlCd =>
+  String get arvlCd =>
       throw _privateConstructorUsedError; // 도착코드 (0:진입, 1:도착, 2:출발, 3:전역출발, 4:전역진입, 5:전역도착, 99:운행중)
-  int get barvlDt => throw _privateConstructorUsedError; // 열차도착예정시간 (단위:초)
+  String get barvlDt => throw _privateConstructorUsedError; // 열차도착예정시간 (단위:초)
   String get statnNm => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $SubwayModelCopyWith<$Res> {
           SubwayModel value, $Res Function(SubwayModel) then) =
       _$SubwayModelCopyWithImpl<$Res, SubwayModel>;
   @useResult
-  $Res call({String subwayId, int arvlCd, int barvlDt, String statnNm});
+  $Res call({String subwayId, String arvlCd, String barvlDt, String statnNm});
 }
 
 /// @nodoc
@@ -67,11 +67,11 @@ class _$SubwayModelCopyWithImpl<$Res, $Val extends SubwayModel>
       arvlCd: null == arvlCd
           ? _value.arvlCd
           : arvlCd // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       barvlDt: null == barvlDt
           ? _value.barvlDt
           : barvlDt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       statnNm: null == statnNm
           ? _value.statnNm
           : statnNm // ignore: cast_nullable_to_non_nullable
@@ -88,7 +88,7 @@ abstract class _$$SubwayModelImplCopyWith<$Res>
       __$$SubwayModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String subwayId, int arvlCd, int barvlDt, String statnNm});
+  $Res call({String subwayId, String arvlCd, String barvlDt, String statnNm});
 }
 
 /// @nodoc
@@ -115,11 +115,11 @@ class __$$SubwayModelImplCopyWithImpl<$Res>
       arvlCd: null == arvlCd
           ? _value.arvlCd
           : arvlCd // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       barvlDt: null == barvlDt
           ? _value.barvlDt
           : barvlDt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       statnNm: null == statnNm
           ? _value.statnNm
           : statnNm // ignore: cast_nullable_to_non_nullable
@@ -144,10 +144,10 @@ class _$SubwayModelImpl implements _SubwayModel {
   final String subwayId;
 // 지하철호선ID
   @override
-  final int arvlCd;
+  final String arvlCd;
 // 도착코드 (0:진입, 1:도착, 2:출발, 3:전역출발, 4:전역진입, 5:전역도착, 99:운행중)
   @override
-  final int barvlDt;
+  final String barvlDt;
 // 열차도착예정시간 (단위:초)
   @override
   final String statnNm;
@@ -191,8 +191,8 @@ class _$SubwayModelImpl implements _SubwayModel {
 abstract class _SubwayModel implements SubwayModel {
   const factory _SubwayModel(
       {required final String subwayId,
-      required final int arvlCd,
-      required final int barvlDt,
+      required final String arvlCd,
+      required final String barvlDt,
       required final String statnNm}) = _$SubwayModelImpl;
 
   factory _SubwayModel.fromJson(Map<String, dynamic> json) =
@@ -201,9 +201,9 @@ abstract class _SubwayModel implements SubwayModel {
   @override
   String get subwayId;
   @override // 지하철호선ID
-  int get arvlCd;
+  String get arvlCd;
   @override // 도착코드 (0:진입, 1:도착, 2:출발, 3:전역출발, 4:전역진입, 5:전역도착, 99:운행중)
-  int get barvlDt;
+  String get barvlDt;
   @override // 열차도착예정시간 (단위:초)
   String get statnNm;
   @override

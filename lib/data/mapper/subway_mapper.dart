@@ -5,8 +5,8 @@ extension ToSubway on RealtimeArrivalList {
   SubwayModel toSubway() {
     return SubwayModel(
       subwayId: subwayId!,
-      arvlCd: int.parse(arvlCd!),
-      barvlDt: int.parse(barvlDt!),
+      arvlCd: arvlCd!,
+      barvlDt: barvlDt!,
       statnNm: statnNm!,
     );
   }

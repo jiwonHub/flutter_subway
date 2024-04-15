@@ -9,8 +9,8 @@ part of 'subway_model.dart';
 _$SubwayModelImpl _$$SubwayModelImplFromJson(Map<String, dynamic> json) =>
     _$SubwayModelImpl(
       subwayId: json['subwayId'] as String,
-      arvlCd: json['arvlCd'] as int,
-      barvlDt: json['barvlDt'] as int,
+      arvlCd: json['arvlCd'] as String,
+      barvlDt: json['barvlDt'] as String,
       statnNm: json['statnNm'] as String,
     );
 
